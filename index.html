@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="tet">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#15803d">
+  <meta name="description" content="Kalkuladora simples iha lian Tetun.">
+  <title>Kalkuladora Tetun</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <style>
+    :root { color-scheme: light; --green:#15803d; --deep:#14532d; --pale:#dcfce7; --ink:#102318; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; background:linear-gradient(160deg,#f0fdf4,#dcfce7); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; display:grid; place-items:center; padding:18px; }
+    .app { width:min(100%,410px); background:#fff; border-radius:30px; padding:22px; box-shadow:0 18px 55px #14532d20; border:1px solid #bbf7d0; }
+    header { display:flex; align-items:center; gap:12px; margin-bottom:22px; }
+    .logo { width:46px;height:46px;border-radius:15px;background:var(--green);color:white;display:grid;place-items:center;font-size:25px;font-weight:800; }
+    h1 { font-size:21px; margin:0; color:var(--deep); }
+    .sub { font-size:12px;color:#568064;margin-top:3px; }
+    .screen { background:#f0fdf4;border:1px solid #bbf7d0;border-radius:20px;padding:16px;margin-bottom:16px;min-height:116px;display:flex;flex-direction:column;justify-content:space-between; }
+    .label { font-size:12px;color:#568064; }
+    #expression { min-height:25px;text-align:right;font-size:17px;color:#568064;overflow-wrap:anywhere; }
+    #display { text-align:right;font-size:clamp(34px,9vw,46px);font-weight:700;overflow-wrap:anywhere;line-height:1.15; }
+    .keys { display:grid;grid-template-columns:repeat(4,1fr);gap:10px; }
+    button { border:0;border-radius:17px;min-height:64px;font-size:23px;font-weight:650;background:#f1f5f2;color:#183b27;cursor:pointer;touch-action:manipulation; }
+    button:active { transform:scale(.96); }
+    button.op { background:#dcfce7;color:#166534; }
+    button.equal { background:var(--green);color:white; }
+    button.clear { background:#fee2e2;color:#991b1b; }
+    button.wide { grid-column:span 2; }
+    footer { text-align:center;color:#6b8a75;font-size:11px;margin-top:17px; }
+    @media (max-height:700px) { .app{padding:16px}.keys{gap:7px}button{min-height:54px} }
+  </style>
+</head>
+<body>
+  <main class="app" aria-label="Kalkuladora Tetun">
+    <header>
+      <div class="logo">+</div>
+      <div><h1>Kalkuladora Tetun</h1><div class="sub">Kalkula ho fasil iha lian Tetun</div></div>
+    </header>
+    <section class="screen" aria-live="polite">
+      <div class="label">Konta</div>
+      <div id="expression"></div>
+      <div id="display">0</div>
+    </section>
+    <section class="keys">
+      <button class="clear" data-action="clear">Hamoos</button>
+      <button class="op" data-action="delete" aria-label="Hasai ikus">⌫</button>
+      <button class="op" data-value="%">%</button>
+      <button class="op" data-value="÷">÷</button>
+
+      <button data-value="7">7</button><button data-value="8">8</button><button data-value="9">9</button><button class="op" data-value="×">×</button>
+      <button data-value="4">4</button><button data-value="5">5</button><button data-value="6">6</button><button class="op" data-value="−">−</button>
+      <button data-value="1">1</button><button data-value="2">2</button><button data-value="3">3</button><button class="op" data-value="+">+</button>
+      <button class="wide" data-value="0">0</button><button data-value=".">.</button><button class="equal" data-action="equals">=</button>
+    </section>
+    <footer>Numeru no operasaun matemátika • Kalkuladora Tetun</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "Kalkuladora Tetun",
+  "short_name": "Kalkuladora",
+  "description": "Kalkuladora simples iha lian Tetun",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f0fdf4",
+  "theme_color": "#15803d",
+  "icons": [
+    {"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
